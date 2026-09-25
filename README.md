@@ -78,23 +78,22 @@ RNF06 — O sistema deve reduzir a dependência dos registros realizados em pape
 
 (esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação. "Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)
 
-Regras operacionais: Um cliente pode realizar vários atendimentos e várias vendas; todo atendimento está associado a um cliente e a um funcionário; um atendimento pode gerar uma receita e uma ou mais vendas; uma venda recebe pagamentos; uma venda possui produtos; um fornecedor pode fornecer vários produtos; uma compra está relacionada a um fornecedor; os produtos possuem quantidade disponível controlada; uma venda pode utilizar diferentes formas de pagamento e parcelamento; existe garantia de 1 ano.
+Regras operacionais: Um cliente pode realizar vários atendimentos e várias vendas; todo atendimento está associado a um cliente e a um funcionário; um atendimento pode gerar uma receita e uma ou mais vendas; uma venda recebe um ou mais pagamentos; uma venda possui um ou mais produtos; um produto pode estar relacionado a vários fornecedores e um fornecedor pode estar relacionado a vários produtos; um fornecedor pode atender várias compras; cada compra está associada a um fornecedor; os produtos possuem quantidade disponível controlada; uma venda pode utilizar diferentes formas de pagamento e parcelamento; existe garantia de 1 ano.
 
 Restrições organizacionais: Parte dos registros é realizada em papel, podendo ocorrer rasuras e informações incorretas. O controle dos produtos faltantes também é realizado manualmente por contagem. A organização identificou a necessidade de voltar a utilizar um sistema e possuir um banco de dados para organizar e consultar suas informações.
 
 5. Dicionário de Dados Conceitual (Preliminar)
 
 (vale 10% — Dimensão Procedimental - Segue o modelo do arquivo 02-03g_Exemplo_Dicionario_Dados.pdf)
-
 Para cada entidade identificada, liste:
 
 Cliente
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_cliente
 
@@ -128,11 +127,11 @@ Informação cadastral
 
 Atendimento
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_atendimento
 
@@ -160,11 +159,11 @@ Registra quando o atendimento ocorreu
 
 Receita
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_receita
 
@@ -198,11 +197,11 @@ Registra a data da receita
 
 Funcionario
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_funcionario
 
@@ -236,11 +235,11 @@ Informação registrada no DER
 
 Venda
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_venda
 
@@ -274,11 +273,11 @@ Informação de garantia
 
 Pagamento
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_pagamento
 
@@ -306,11 +305,11 @@ Registra o valor pago
 
 Produto
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_produto
 
@@ -386,11 +385,11 @@ Registra a quantidade disponível
 
 Fornecedor
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_fornecimento
 
@@ -424,11 +423,11 @@ Informação cadastral
 
 Compra
 
-Atributo
+AtributoDescriçãoRegra de negócio associada
 
-Descrição
 
-Regra de negócio associada
+
+
 
 id_compra
 
@@ -461,18 +460,17 @@ Tipo da compra
 Informação da compra
 
 Mantenha o dicionário organizado e padronizado (mesmo formato de tabela para todas as entidades).
-
 Atenção à privacidade: se forem usados exemplos de valores para ilustrar os atributos, esses exemplos devem ser fictícios — não utilize dados reais de clientes, fiéis, beneficiários, doadores ou funcionários da organização (nomes, CPFs, contatos etc.), mesmo que tenham sido observados durante a pesquisa de campo. Os exemplos devem apenas ser coerentes com as operações reais observadas.
 
 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
 
 (vale 7,5% na dimensão conceitual)
 
-Entidades reconhecidas: Cliente, Atendimento, Receita, Funcionário, Venda, Pagamento, Produto, Fornecedor e Compra. Essas entidades representam os principais dados e objetos identificados nos processos levantados e estruturados no DER.
+Entidades reconhecidas: Cliente, Atendimento, Receita, Funcionário, Venda, Pagamento, Produto, Fornecedor e Compra. Essas entidades correspondem às entidades representadas no DER atualizado.
 
 Atributos e classificações: Cliente possui id_cliente, CPF, endereço, nome e data de nascimento. Atendimento possui id_atendimento, tipo, observação e data/hora. Receita possui id_receita, altura, DNP, grau e data. Funcionário possui id_funcionario, telefone, função, nome e data de emissão. Venda possui id_venda, número da nota, valor total, data e prazo de garantia. Pagamento possui id_pagamento, forma, número de parcelas e valor. Produto possui id_produto, tipo, referência, marca, material, tipo de montagem, tratamento, medida, grau, bloco, índice e quantidade disponível. Fornecedor possui id_fornecimento, localização, telefone, CNPJ e nome. Compra possui id_compra, data da compra, valor total, status da compra e tipo da compra.
 
-Relacionamentos pertinentes: Cliente realiza atendimentos e vendas. Atendimento é realizado por funcionário e pode gerar receita e venda. Venda recebe pagamentos e possui produtos. Fornecedor fornece produtos e atende compras.
+Relacionamentos pertinentes: Cliente REALIZA Atendimento e Venda. Atendimento se relaciona com Funcionário por REALIZA, com Receita por GERA e com Venda por GERA. Venda se relaciona com Pagamento por RECEBE e com Produto por POSSUI. Produto se relaciona com Fornecedor por FORNECE. Fornecedor se relaciona com Compra por ATENDE.
 
 Restrições e políticas organizacionais aplicadas ao modelo: O modelo considera o uso de registros em papel, o controle manual dos produtos faltantes, a possibilidade de múltiplas receitas por cliente, as diferentes formas de pagamento, o parcelamento, o registro das compras com fornecedores e a garantia de 1 ano.
 
@@ -518,27 +516,21 @@ O modelo deve ser consistente e já demonstrar potencial de escalabilidade e int
 
 (vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)
 
-A modelagem foi organizada a partir dos processos e informações levantados na Ótica Kadosh e representados no DER. A entidade Cliente concentra as informações cadastrais e se relaciona com Atendimento e Venda.
-
-A entidade Atendimento representa o registro do atendimento e possui relação com Cliente, Funcionário, Receita e Venda, conforme representado no DER. A relação com Receita permite representar que um atendimento pode gerar uma receita.
-
+A modelagem foi organizada a partir dos processos e informações levantados na Ótica Kadosh e representados no DER atualizado. A entidade Cliente concentra as informações cadastrais e se relaciona com Atendimento e Venda.
+A entidade Atendimento representa o registro do atendimento e se relaciona com Cliente, Funcionário, Receita e Venda, conforme representado no DER. A relação com Receita permite representar que um atendimento pode gerar uma receita, enquanto a relação com Venda representa a geração da venda a partir do atendimento.
 A entidade Funcionário participa do relacionamento com Atendimento e possui os atributos representados no diagrama. A entidade Venda registra os dados da venda e se relaciona com Cliente, Atendimento, Pagamento e Produto.
-
-A entidade Pagamento foi separada de Venda porque o modelo registra forma de pagamento, valor e parcelamento. A entidade Produto concentra as características dos produtos e sua quantidade disponível.
-
+A entidade Pagamento foi separada de Venda porque o modelo registra forma de pagamento, valor e parcelamento. A entidade Produto concentra as características dos produtos e sua quantidade disponível, além de se relacionar com Fornecedor.
 As entidades Fornecedor e Compra representam os processos relacionados ao fornecimento e às compras. Fornecedor se relaciona com Produto por meio de FORNECE e com Compra por meio de ATENDE.
-
-As cardinalidades foram mantidas conforme representadas no DER atualizado, sem acrescentar entidades, atributos ou relacionamentos que não estejam presentes no diagrama.
+As cardinalidades foram mantidas exatamente conforme representadas no DER enviado, sem acrescentar entidades, atributos ou relacionamentos que não estejam presentes no diagrama.
 
 9. Uso de Inteligência Artificial
 
 (documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)
-
 Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre para cada uso relevante:
 
-Item
+ItemO que registrar
 
-O que registrar
+
 
 Ferramenta e etapa
 
@@ -586,9 +578,9 @@ Autonomia (5%): busca independente de soluções e proposta de melhorias.
 
 Resumo dos Pesos
 
-Dimensão
+DimensãoPeso total
 
-Peso total
+
 
 Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica)
 
