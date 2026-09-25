@@ -1,5 +1,8 @@
-1. Caracterização da Organização
 
+
+
+
+1. Caracterização da Organização
 (vale 7,5% — Dimensão Conceitual)
 
 Nome e natureza da organização: A organização escolhida é a Ótica Kadosh, do segmento óptico.
@@ -13,7 +16,6 @@ Justificativa da escolha: A Ótica Kadosh foi escolhida por apresentar diferente
 Evidências da organização: A pesquisa foi realizada por meio de entrevista e pesquisa de campo na Ótica Kadosh. As fotos da visita serão adicionadas posteriormente pelo grupo como evidência.
 
 2. Processos de Negócio
-
 (vale 10% — Dimensão Procedimental)
 
 Principais processos mapeados: Atendimento ao cliente; identificação da necessidade do cliente; verificação de receita; realização de exame de vista quando não há receita; preenchimento da ficha; elaboração de orçamento; apresentação das informações ao cliente; venda de produtos; realização do pagamento; contagem dos produtos em falta; realização de compras e pedidos; relação com fornecedores; acompanhamento da ordem de serviço; montagem e finalização.
@@ -21,11 +23,9 @@ Principais processos mapeados: Atendimento ao cliente; identificação da necess
 Fluxogramas: Os fluxogramas dos processos-chave serão anexados ao repositório, representando visualmente os fluxos identificados durante a pesquisa de campo.
 
 3. Requisitos do Sistema
-
 (esta seção e a Seção 4 "Regras de Negócio" DIVIDEM 7,5% na dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na organização/documentação)
 
 3.1 Requisitos Funcionais
-
 RF01 — O sistema deve permitir cadastrar clientes.
 
 RF02 — O sistema deve permitir registrar nome, CPF, endereço, CEP e número do endereço do cliente.
@@ -65,7 +65,6 @@ RF18 — O sistema deve permitir registrar e acompanhar ordens de serviço, incl
 RF19 — O sistema deve permitir consultar as vendas realizadas por cada funcionário.
 
 3.2 Requisitos Não Funcionais
-
 RNF01 — O sistema deve possuir uma interface simples e de fácil utilização.
 
 RNF02 — O sistema deve proteger as informações pessoais dos clientes.
@@ -79,7 +78,6 @@ RNF05 — O sistema deve manter os dados organizados e estruturados.
 RNF06 — O sistema deve reduzir a dependência dos registros realizados em papel.
 
 4. Regras de Negócio
-
 (esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação. "Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)
 
 Regras operacionais: Um cliente pode possuir mais de uma receita; cada receita registra grau, DNP e altura; um atendimento pode ou não gerar uma receita; todo atendimento pertence a um cliente e é realizado por um funcionário; uma venda pertence a um cliente e é efetuada por um funcionário; uma venda contém um ou mais itens; uma venda pode receber um ou mais pagamentos; uma venda pode ser acompanhada por uma ordem de serviço; uma receita pode estar relacionada a itens de venda; cada item de venda referencia um produto; um fornecedor pode fornecer vários produtos; uma compra deve estar relacionada a um fornecedor e conter um ou mais itens; cada item de compra referencia um produto; os produtos possuem quantidade disponível controlada; uma venda pode utilizar cartão de crédito, PIX ou dinheiro, podendo combinar formas de pagamento e utilizar parcelamento; existe garantia de 1 ano.
@@ -87,395 +85,87 @@ Regras operacionais: Um cliente pode possuir mais de uma receita; cada receita r
 Restrições organizacionais: Parte dos registros é realizada em papel, podendo ocorrer rasuras e informações incorretas. O controle dos produtos faltantes também é realizado manualmente por contagem. A organização identificou a necessidade de voltar a utilizar um sistema e possuir um banco de dados para organizar e consultar suas informações.
 
 5. Dicionário de Dados Conceitual (Preliminar)
-
 (vale 10% — Dimensão Procedimental)
 
 O dicionário abaixo foi ajustado para corresponder aos elementos que aparecem no DER fornecido.
 
 Cliente
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_cliente
-
-Identificador conceitual do cliente
-
-Utilizado para identificar o cliente no modelo
-
-cpf
-
-CPF do cliente
-
-Informação cadastral
-
-endereco
-
-Endereço do cliente
-
-Informação cadastral
-
-nome
-
-Nome do cliente
-
-Informação cadastral
-
-data_nasc
-
-Data de nascimento do cliente
-
-Informação cadastral
-
+Atributo	Descrição	Regra de negócio associada
+id_cliente	Identificador conceitual do cliente	Utilizado para identificar o cliente no modelo
+cpf	CPF do cliente	Informação cadastral
+endereco	Endereço do cliente	Informação cadastral
+nome	Nome do cliente	Informação cadastral
+data_nasc	Data de nascimento do cliente	Informação cadastral
 Atendimento
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_atendimento
-
-Identificador conceitual do atendimento
-
-Utilizado para identificar o atendimento no modelo
-
-tipo
-
-Tipo do atendimento
-
-Pode representar exame, venda ou ajuste, conforme indicado no DER
-
-observacao
-
-Observação do atendimento
-
-Registra observações relacionadas ao atendimento
-
-data_hora
-
-Data e hora do atendimento
-
-Registra quando o atendimento ocorreu
-
+Atributo	Descrição	Regra de negócio associada
+id_atendimento	Identificador conceitual do atendimento	Utilizado para identificar o atendimento no modelo
+tipo	Tipo do atendimento	Pode representar exame, venda ou ajuste, conforme indicado no DER
+observacao	Observação do atendimento	Registra observações relacionadas ao atendimento
+data_hora	Data e hora do atendimento	Registra quando o atendimento ocorreu
 Receita
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_receita
-
-Identificador conceitual da receita
-
-Utilizado para identificar a receita no modelo
-
-altura
-
-Altura registrada na receita
-
-Informação da receita
-
-dnp
-
-DNP registrada na receita
-
-Informação da receita
-
-grau
-
-Grau registrado na receita
-
-Informação da receita
-
-data
-
-Data da receita
-
-Registra a data da receita
-
+Atributo	Descrição	Regra de negócio associada
+id_receita	Identificador conceitual da receita	Utilizado para identificar a receita no modelo
+altura	Altura registrada na receita	Informação da receita
+dnp	DNP registrada na receita	Informação da receita
+grau	Grau registrado na receita	Informação da receita
+data	Data da receita	Registra a data da receita
 Funcionario
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_funcionario
-
-Identificador conceitual do funcionário
-
-Utilizado para identificar o funcionário no modelo
-
-telefone
-
-Telefone do funcionário
-
-Informação cadastral
-
-funcao
-
-Função do funcionário
-
-Informação funcional
-
-nome
-
-Nome do funcionário
-
-Informação cadastral
-
-data_emissao
-
-Data de emissão registrada no modelo
-
-Informação registrada no DER
-
+Atributo	Descrição	Regra de negócio associada
+id_funcionario	Identificador conceitual do funcionário	Utilizado para identificar o funcionário no modelo
+telefone	Telefone do funcionário	Informação cadastral
+funcao	Função do funcionário	Informação funcional
+nome	Nome do funcionário	Informação cadastral
+data_emissao	Data de emissão registrada no modelo	Informação registrada no DER
 Venda
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_venda
-
-Identificador conceitual da venda
-
-Utilizado para identificar a venda no modelo
-
-numero_nota
-
-Número da nota da venda
-
-Informação da venda
-
-valor_total
-
-Valor total da venda
-
-Deve ser registrado
-
-data
-
-Data da venda
-
-Registra quando a venda ocorreu
-
-prazo_garantia
-
-Prazo de garantia da venda
-
-Informação de garantia
-
+Atributo	Descrição	Regra de negócio associada
+id_venda	Identificador conceitual da venda	Utilizado para identificar a venda no modelo
+numero_nota	Número da nota da venda	Informação da venda
+valor_total	Valor total da venda	Deve ser registrado
+data	Data da venda	Registra quando a venda ocorreu
+prazo_garantia	Prazo de garantia da venda	Informação de garantia
 Pagamento
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_pagamento
-
-Identificador conceitual do pagamento
-
-Utilizado para identificar o pagamento no modelo
-
-forma
-
-Forma de pagamento
-
-Pode representar dinheiro, PIX, débito ou crédito, conforme indicado no DER
-
-num_parcelas
-
-Número de parcelas
-
-Registra o parcelamento do pagamento
-
-valor
-
-Valor do pagamento
-
-Registra o valor pago
-
+Atributo	Descrição	Regra de negócio associada
+id_pagamento	Identificador conceitual do pagamento	Utilizado para identificar o pagamento no modelo
+forma	Forma de pagamento	Pode representar dinheiro, PIX, débito ou crédito, conforme indicado no DER
+num_parcelas	Número de parcelas	Registra o parcelamento do pagamento
+valor	Valor do pagamento	Registra o valor pago
 Produto
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_produto
-
-Identificador conceitual do produto
-
-Utilizado para identificar o produto no modelo
-
-tipo
-
-Tipo de produto
-
-Informação do produto
-
-referencia
-
-Referência do produto
-
-Informação utilizada para identificação
-
-marca
-
-Marca do produto
-
-Informação do produto
-
-material
-
-Material do produto
-
-Informação do produto
-
-tipo_montagem
-
-Tipo de montagem
-
-Informação do produto
-
-tratamento
-
-Tratamento
-
-Informação do produto
-
-medida
-
-Medida
-
-Informação do produto
-
-grau
-
-Grau
-
-Informação do produto
-
-bloco
-
-Bloco
-
-Informação do produto
-
-indice
-
-Índice
-
-Informação do produto
-
-quantidade_disponivel
-
-Quantidade disponível do produto
-
-Registra a quantidade disponível
-
+Atributo	Descrição	Regra de negócio associada
+id_produto	Identificador conceitual do produto	Utilizado para identificar o produto no modelo
+tipo	Tipo de produto	Informação do produto
+referencia	Referência do produto	Informação utilizada para identificação
+marca	Marca do produto	Informação do produto
+material	Material do produto	Informação do produto
+tipo_montagem	Tipo de montagem	Informação do produto
+tratamento	Tratamento	Informação do produto
+medida	Medida	Informação do produto
+grau	Grau	Informação do produto
+bloco	Bloco	Informação do produto
+indice	Índice	Informação do produto
+quantidade_disponivel	Quantidade disponível do produto	Registra a quantidade disponível
 Fornecedor
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_fornecimento
-
-Identificador conceitual do fornecedor
-
-Utilizado para identificar o fornecedor no modelo
-
-localizacao
-
-Localização do fornecedor
-
-Informação cadastral
-
-telefone
-
-Telefone do fornecedor
-
-Informação cadastral
-
-cnpj
-
-CNPJ do fornecedor
-
-Informação cadastral
-
-nome
-
-Nome do fornecedor
-
-Informação cadastral
-
+Atributo	Descrição	Regra de negócio associada
+id_fornecimento	Identificador conceitual do fornecedor	Utilizado para identificar o fornecedor no modelo
+localizacao	Localização do fornecedor	Informação cadastral
+telefone	Telefone do fornecedor	Informação cadastral
+cnpj	CNPJ do fornecedor	Informação cadastral
+nome	Nome do fornecedor	Informação cadastral
 Compra
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_compra
-
-Identificador conceitual da compra
-
-Utilizado para identificar a compra no modelo
-
-data_compra
-
-Data da compra
-
-Registra quando a compra ocorreu
-
-valor_total
-
-Valor total da compra
-
-Informação da compra
-
-status_compra
-
-Status da compra
-
-Permite registrar a situação da compra
-
-tipo_compra
-
-Tipo da compra
-
-Informação da compra
-
+Atributo	Descrição	Regra de negócio associada
+id_compra	Identificador conceitual da compra	Utilizado para identificar a compra no modelo
+data_compra	Data da compra	Registra quando a compra ocorreu
+valor_total	Valor total da compra	Informação da compra
+status_compra	Status da compra	Permite registrar a situação da compra
+tipo_compra	Tipo da compra	Informação da compra
 Observação: não foram incluídas as entidades Item_Venda, Item_Compra e Ordem_Servico, nem atributos que não aparecem no DER fornecido. O dicionário deve permanecer limitado ao que está efetivamente representado no diagrama.
 
 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-
 (vale 7,5% na dimensão conceitual)
 
 Entidades reconhecidas
-
 Cliente, Atendimento, Receita, Funcionário, Venda, Pagamento, Produto, Fornecedor e Compra.
 
 Atributos
-
 Cliente: id_cliente, cpf, endereco, nome, data_nasc.
 
 Atendimento: id_atendimento, tipo, observacao, data_hora.
@@ -495,7 +185,6 @@ Fornecedor: id_fornecimento, localizacao, telefone, cnpj, nome.
 Compra: id_compra, data_compra, valor_total, status_compra, tipo_compra.
 
 Relacionamentos e cardinalidades
-
 Cliente (0,n) — REALIZA — Atendimento (1,1).
 
 Atendimento (1,1) — REALIZA — Funcionário (0,n).
@@ -515,11 +204,9 @@ Produto (0,n) — FORNECE — Fornecedor (0,n).
 Fornecedor (0,n) — ATENDE — Compra (1,1).
 
 Observação de consistência
-
 As entidades, atributos, relacionamentos e cardinalidades acima foram transcritos de acordo com o DER fornecido. Não foram acrescentadas entidades ou relacionamentos que não estejam representados no diagrama.
 
 7. Diagrama Entidade-Relacionamento (DER)
-
 (vale 20% — é o item de maior peso da entrega)
 
 Anexe o DER (em imagem).
@@ -537,7 +224,6 @@ Cardinalidades.
 O texto deste README deve permanecer consistente com o DER anexado.
 
 8. Justificativa Técnica
-
 (vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)
 
 A modelagem foi organizada a partir dos processos e informações levantados na Ótica Kadosh e representados no DER. A entidade Cliente concentra informações cadastrais e se relaciona com Atendimento e Venda, além de possuir relação com Receita por meio do modelo representado.
@@ -557,50 +243,21 @@ As entidades Fornecedor e Compra representam a parte relacionada aos fornecedore
 Importante: não foram criadas ou descritas as entidades Item_Venda, Item_Compra e Ordem_Servico, pois elas não aparecem no DER fornecido.
 
 9. Uso de Inteligência Artificial
-
 (documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)
 Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre para cada uso relevante:
 
-ItemO que registrar
-
-
-
-Ferramenta e etapa
-
-ChatGPT — utilizado na organização das informações da entrevista, elaboração e revisão dos requisitos, regras de negócio, dicionário de dados, modelagem conceitual e revisão do README.
-
-Motivação
-
-Auxiliar na organização das informações obtidas na entrevista e na estruturação e revisão da documentação da atividade.
-
-Prompt(s) utilizados
-
-Prompts solicitando a organização e revisão das informações da entrevista da Ótica Kadosh conforme a estrutura do modelo fornecido pelo professor.
-
-Resposta recebida
-
-A IA auxiliou na organização das informações da entrevista em caracterização da organização, processos, requisitos, regras de negócio, dicionário de dados e modelagem conceitual.
-
-Fontes consultadas e verificadas
-
-As informações foram comparadas com as respostas obtidas na entrevista e com as observações realizadas durante a pesquisa de campo.
-
-Trechos rejeitados ou corrigidos
-
-Foram rejeitadas ou corrigidas informações que não estavam confirmadas na entrevista, além de atributos, entidades e relacionamentos que não estavam suficientemente sustentados pelo levantamento.
-
-Justificativa da escolha final
-
-O grupo utilizou a IA como ferramenta de apoio, mantendo a entrevista e a pesquisa de campo como base principal para as decisões do projeto.
-
-Reflexão crítica
-
-A IA pode interpretar incorretamente informações ambíguas ou sugerir elementos não levantados na pesquisa. Por isso, suas respostas foram analisadas criticamente e revisadas pelo grupo antes da utilização no projeto.
-
+ItemO que registrar	
+Ferramenta e etapa	ChatGPT — utilizado na organização das informações da entrevista, elaboração e revisão dos requisitos, regras de negócio, dicionário de dados, modelagem conceitual e revisão do README.
+Motivação	Auxiliar na organização das informações obtidas na entrevista e na estruturação e revisão da documentação da atividade.
+Prompt(s) utilizados	Prompts solicitando a organização e revisão das informações da entrevista da Ótica Kadosh conforme a estrutura do modelo fornecido pelo professor.
+Resposta recebida	A IA auxiliou na organização das informações da entrevista em caracterização da organização, processos, requisitos, regras de negócio, dicionário de dados e modelagem conceitual.
+Fontes consultadas e verificadas	As informações foram comparadas com as respostas obtidas na entrevista e com as observações realizadas durante a pesquisa de campo.
+Trechos rejeitados ou corrigidos	Foram rejeitadas ou corrigidas informações que não estavam confirmadas na entrevista, além de atributos, entidades e relacionamentos que não estavam suficientemente sustentados pelo levantamento.
+Justificativa da escolha final	O grupo utilizou a IA como ferramenta de apoio, mantendo a entrevista e a pesquisa de campo como base principal para as decisões do projeto.
+Reflexão crítica	A IA pode interpretar incorretamente informações ambíguas ou sugerir elementos não levantados na pesquisa. Por isso, suas respostas foram analisadas criticamente e revisadas pelo grupo antes da utilização no projeto.
 Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.
 
 Critérios Atitudinais (20%)
-
 Estes critérios NÃO constam explicitamente como item de entrega no README. Eles são avaliados por meio de Avaliação 360º entre os integrantes do grupo (cada membro avalia os colegas de equipe) e, no caso da Colaboração, também pela colaboração equilibrada no histórico de commits do repositório GitHub — não pela leitura do restante do repositório nem pela apresentação:
 
 Participação (5%): envolvimento nas discussões técnicas e nas decisões do grupo.
@@ -612,19 +269,7 @@ Colaboração (5%): respeito às contribuições dos colegas, cooperação na co
 Autonomia (5%): busca independente de soluções e proposta de melhorias.
 
 Resumo dos Pesos
-
-DimensãoPeso total
-
-
-
-Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica)
-
-30%
-
-Procedimental (requisitos, fluxogramas, dicionário de dados, DER)
-
-50%
-
-Atitudinal (participação, comprometimento, colaboração, autonomia)
-
-20%
+DimensãoPeso total	
+Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica)	30%
+Procedimental (requisitos, fluxogramas, dicionário de dados, DER)	50%
+Atitudinal (participação, comprometimento, colaboração, autonomia)	20%
