@@ -522,19 +522,19 @@ As entidades, atributos, relacionamentos e cardinalidades acima foram transcrito
 
 (vale 20% — é o item de maior peso da entrega)
 
+Anexe o DER (em imagem).
 
+O diagrama deve representar corretamente:
 
-O diagrama representa corretamente:
+Entidades;
 
-Entidades
+Atributos;
 
-Atributos
+Relacionamentos;
 
-Relacionamentos
+Cardinalidades.
 
-Cardinalidades
-
-O modelo deve ser consistente com as informações apresentadas neste README e com o DER anexado.
+O texto deste README deve permanecer consistente com o DER anexado.
 
 8. Justificativa Técnica
 
