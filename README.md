@@ -1,795 +1,326 @@
-Projeto de Banco de Dados — Modelagem Conceitual
+## 1. Caracterização da Organização
+*(vale 7,5% — Dimensão Conceitual)*
 
-1. Caracterização da Organização
+- **Nome e natureza da organização:** A organização representada pelo DER é uma **ótica**, caracterizada como uma empresa comercial que trabalha com atendimento de clientes, realização de exames, ajustes, vendas de produtos ópticos, receitas, pagamentos, compras e fornecedores.
 
-(vale 7,5% — Dimensão Conceitual)
+- **Contexto e porte:** A organização possui uma operação voltada ao atendimento de clientes e à comercialização de produtos ópticos. O sistema contempla funcionários responsáveis pelos atendimentos, clientes, produtos, fornecedores, vendas, pagamentos, receitas e compras.
 
-Nome e natureza da organização: A organização representada pelo DER é uma ótica, caracterizada como uma empresa comercial que trabalha com atendimento de clientes, realização de exames, ajustes, vendas de produtos ópticos, receitas, pagamentos, compras e fornecedores.
+- **Problemas e necessidades identificados:** A organização necessita de um sistema capaz de organizar e centralizar as informações relacionadas aos clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras. O controle dessas informações permite melhorar a organização dos dados e facilitar o acompanhamento das operações realizadas.
 
-Contexto e porte: A organização possui uma operação voltada ao atendimento de clientes e à comercialização de produtos ópticos. O sistema contempla funcionários responsáveis pelos atendimentos, clientes, produtos, fornecedores, vendas, pagamentos, receitas e compras.
+- **Justificativa da escolha:** A organização foi escolhida por apresentar diversos processos que podem ser representados por meio de um banco de dados. O funcionamento envolve diferentes entidades e relacionamentos, como clientes realizando atendimentos, funcionários realizando atendimentos, atendimentos gerando receitas e vendas, vendas recebendo pagamentos, produtos sendo relacionados às vendas e fornecedores relacionados a produtos e compras.
 
-Problemas e necessidades identificados: A organização necessita de um sistema capaz de organizar e centralizar as informações relacionadas aos clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras. O controle dessas informações permite melhorar a organização dos dados e facilitar o acompanhamento das operações realizadas.
+- **Evidências da organização:** O DER desenvolvido apresenta a estrutura de informações e processos relacionados à organização. As informações específicas como nome oficial da organização, endereço completo, telefone, e-mail, responsável e links de redes sociais ou Google Maps devem ser preenchidas pelo grupo de acordo com os dados obtidos durante a pesquisa de campo.
 
-Justificativa da escolha: A organização foi escolhida por apresentar diversos processos que podem ser representados por meio de um banco de dados. O funcionamento envolve diferentes entidades e relacionamentos, como clientes realizando atendimentos, funcionários realizando atendimentos, atendimentos gerando receitas e vendas, vendas recebendo pagamentos, produtos sendo relacionados às vendas e fornecedores relacionados a produtos e compras.
 
-Evidências da organização: O DER desenvolvido apresenta a estrutura de informações e processos relacionados à organização. As informações específicas como nome oficial da organização, endereço completo, telefone, e-mail, responsável e links de redes sociais ou Google Maps devem ser preenchidas pelo grupo de acordo com os dados obtidos durante a pesquisa de campo.
+---
 
-2. Processos de Negócio
+## 2. Processos de Negócio
+*(vale 10% — Dimensão Procedimental)*
 
-(vale 10% — Dimensão Procedimental)
+- **Principais processos mapeados:** Os principais processos identificados no funcionamento da organização são o cadastro de clientes, registro de atendimentos, cadastro e controle de funcionários, registro de exames, vendas e ajustes, geração de receitas, realização de vendas, registro de pagamentos, cadastro e controle de produtos, controle da quantidade disponível dos produtos, cadastro de fornecedores, relação entre fornecedores e produtos e registro e controle de compras.
 
-Principais processos mapeados: Os principais processos identificados no funcionamento da organização são:
+- **Processo de atendimento:** O cliente realiza um atendimento na organização. O atendimento possui informações como tipo, data, hora e observação e está relacionado a um funcionário responsável.
 
-Cadastro de clientes;
+- **Processo de receita:** Um atendimento pode gerar uma receita. A receita possui informações como ID da receita, altura, DP, grau e data.
 
-Registro de atendimentos;
+- **Processo de venda:** O cliente realiza uma venda. A venda possui informações como ID da venda, número da nota, valor total, data e prazo de garantia.
 
-Cadastro e controle de funcionários;
+- **Processo de pagamento:** A venda recebe o pagamento. O pagamento registra informações como ID do pagamento, forma de pagamento, número de parcelas e valor.
 
-Registro de exames, vendas e ajustes;
+- **Processo de produtos:** A venda possui produtos. Cada produto possui informações próprias, como tipo, referência, marca, modelo, tipo de montagem, tratamento, medida, grau, bloco, índice e quantidade disponível.
 
-Geração de receitas;
+- **Processo de fornecedores:** Os fornecedores estão relacionados aos produtos comercializados pela organização. O fornecedor possui informações como localização, telefone, CNPJ, nome e ID de fornecimento.
 
-Realização de vendas;
+- **Processo de compras:** O fornecedor atende às compras realizadas pela organização. Cada compra possui ID da compra, data da compra, valor total, status da compra e tipo da compra.
 
-Registro de pagamentos;
+- **Fluxo geral dos processos:** O funcionamento geral pode ser representado pela sequência de atendimento do cliente, realização do atendimento, participação do funcionário, geração de receita ou venda, registro do pagamento, utilização dos produtos e relacionamento com fornecedores e compras.
 
-Cadastro e controle de produtos;
 
-Controle da quantidade disponível dos produtos;
+---
 
-Cadastro de fornecedores;
+## 3. Requisitos do Sistema
+*(esta seção e a Seção 4 "Regras de Negócio" DIVIDEM 7,5% na dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na organização/documentação)*
 
-Relação entre fornecedores e produtos;
+### 3.1 Requisitos Funcionais
 
-Registro de compras;
+- **Cadastro de clientes:** O sistema deve permitir cadastrar e consultar os dados dos clientes, incluindo CPF, ID do cliente, endereço, nome e data de nascimento.
 
-Controle das informações das compras.
+- **Registro de atendimentos:** O sistema deve permitir registrar e consultar os atendimentos realizados, armazenando tipo, data, hora e observações.
 
-Processo de atendimento: O cliente realiza um atendimento na organização. O atendimento possui informações como tipo, data, hora e observação e está relacionado a um funcionário responsável.
+- **Relacionamento com funcionários:** O sistema deve permitir relacionar cada atendimento ao funcionário responsável e manter os dados dos funcionários, como ID, função, nome, telefone e data de emissão.
 
-Processo de receita: Um atendimento pode gerar uma receita. A receita possui informações como ID da receita, altura, DP, grau e data.
+- **Registro de receitas:** O sistema deve permitir registrar receitas relacionadas aos atendimentos, armazenando informações como ID da receita, altura, DP, grau e data.
 
-Processo de venda: O cliente realiza uma venda. A venda possui informações como ID da venda, número da nota, valor total, data e prazo de garantia.
+- **Registro de vendas:** O sistema deve permitir registrar vendas realizadas pelos clientes, contendo ID da venda, número da nota, valor total, data e prazo de garantia.
 
-Processo de pagamento: A venda recebe o pagamento. O pagamento registra informações como ID do pagamento, forma de pagamento, número de parcelas e valor.
+- **Registro de pagamentos:** O sistema deve permitir registrar os pagamentos relacionados às vendas, incluindo forma de pagamento, número de parcelas e valor.
 
-Processo de produtos: A venda possui produtos. Cada produto possui informações próprias, como tipo, referência, marca, modelo, tipo de montagem, tratamento, medida, grau, bloco, índice e quantidade disponível.
+- **Cadastro de produtos:** O sistema deve permitir cadastrar e consultar produtos, armazenando tipo, referência, marca, modelo, tipo de montagem, tratamento, medida, grau, bloco, índice e quantidade disponível.
 
-Processo de fornecedores: Os fornecedores estão relacionados aos produtos comercializados pela organização. O fornecedor possui informações como localização, telefone, CNPJ, nome e ID de fornecimento.
+- **Cadastro de fornecedores:** O sistema deve permitir cadastrar e consultar fornecedores, armazenando localização, telefone, CNPJ, nome e ID de fornecimento.
 
-Processo de compras: O fornecedor atende às compras realizadas pela organização. Cada compra possui ID da compra, data da compra, valor total, status da compra e tipo da compra.
+- **Registro de compras:** O sistema deve permitir registrar compras realizadas junto aos fornecedores, contendo ID da compra, data, valor total, status e tipo da compra.
 
-Fluxo geral dos processos:
+### 3.2 Requisitos Não Funcionais
 
-CLIENTE
-   ↓
-ATENDIMENTO
-   ↓
-FUNCIONÁRIO
-   ↓
-RECEITA / VENDA
-   ↓
-PAGAMENTO
-   ↓
-PRODUTO
-   ↓
-FORNECEDOR
-   ↓
-COMPRA
+- **Segurança:** O sistema deve proteger as informações armazenadas e restringir o acesso conforme as permissões definidas.
 
-3. Requisitos do Sistema
+- **Integridade:** Os dados cadastrados devem permanecer consistentes entre as entidades e seus respectivos relacionamentos.
 
-(esta seção e a Seção 4 "Regras de Negócio" DIVIDEM 7,5% na dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na organização/documentação)
+- **Usabilidade:** O sistema deve apresentar as informações de forma organizada, clara e compreensível para os usuários.
 
-3.1 Requisitos Funcionais
+- **Desempenho:** O sistema deve realizar consultas, registros e atualizações de forma eficiente.
 
-O sistema deve:
+- **Escalabilidade:** O sistema deve permitir o crescimento da quantidade de clientes, produtos, vendas, compras e demais registros.
 
-Permitir cadastrar clientes.
+- **Disponibilidade:** As informações devem estar disponíveis quando forem necessárias para a realização das atividades da organização.
 
-Permitir consultar os dados dos clientes.
 
-Permitir registrar CPF, ID do cliente, endereço, nome e data de nascimento.
+---
 
-Permitir registrar atendimentos.
+## 4. Regras de Negócio
+*(esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação)*
 
-Permitir consultar os atendimentos realizados.
+- **Relacionamento entre cliente e atendimento:** Todo atendimento deve estar relacionado a um cliente cadastrado no sistema.
 
-Permitir registrar o tipo do atendimento.
+- **Responsabilidade pelo atendimento:** Todo atendimento deve estar relacionado a um funcionário responsável.
 
-Permitir registrar data, hora e observação do atendimento.
+- **Geração de receita:** Um atendimento pode gerar uma receita contendo as informações referentes ao exame ou prescrição.
 
-Permitir relacionar o atendimento ao cliente.
+- **Geração de venda:** Um atendimento pode gerar uma venda para o cliente.
 
-Permitir relacionar o atendimento ao funcionário responsável.
+- **Relacionamento da venda:** Toda venda deve estar relacionada a um cliente.
 
-Permitir cadastrar funcionários.
+- **Pagamento da venda:** Toda venda deve possuir informações referentes ao seu pagamento.
 
-Permitir consultar funcionários.
+- **Produtos da venda:** Uma venda pode possuir produtos comercializados pela organização.
 
-Permitir registrar ID, função, nome, telefone e data de emissão do funcionário.
+- **Controle de produtos:** Todo produto deve possuir um identificador próprio e informações referentes à sua quantidade disponível.
 
-Permitir registrar receitas.
+- **Relacionamento com fornecedores:** Um fornecedor pode fornecer diferentes produtos e um produto pode estar relacionado a diferentes fornecedores.
 
-Permitir relacionar uma receita ao atendimento.
+- **Registro de compras:** Uma compra deve estar relacionada a um fornecedor e possuir informações sobre data, valor total, status e tipo.
+
+- **Identificação dos registros:** As entidades devem possuir identificadores para permitir a diferenciação dos registros.
+
+- **Integridade dos dados:** Os relacionamentos e cardinalidades definidos no DER devem ser respeitados durante a implementação do banco de dados.
+
+
+---
+
+## 5. Dicionário de Dados Conceitual (Preliminar)
+*(vale 10% — Dimensão Procedimental - Segue o modelo do arquivo 02-03g_Exemplo_Dicionario_Dados.pdf)*
+
+Para cada entidade identificada, foram definidos os atributos necessários para representar as informações da organização e as respectivas regras de negócio.
+
+### CLIENTE
+
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `cpf` | CPF utilizado para identificação do cliente | Deve identificar o cliente |
+| `id_cliente` | Identificador único do cliente | Chave primária |
+| `endereço` | Endereço do cliente | Informação cadastral |
+| `nome` | Nome do cliente | Informação cadastral |
+| `data_nasc` | Data de nascimento do cliente | Informação cadastral |
 
-Permitir registrar altura, DP, grau e data da receita.
+### ATENDIMENTO
 
-Permitir cadastrar vendas.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_atendimento` | Identificador do atendimento | Chave primária |
+| `tipo` | Tipo de atendimento realizado | Informação do atendimento |
+| `data` | Data em que ocorreu o atendimento | Informação obrigatória |
+| `hora` | Horário do atendimento | Informação do atendimento |
+| `observação` | Observações relacionadas ao atendimento | Informação complementar |
 
-Permitir relacionar a venda ao cliente.
+### FUNCIONARIO
 
-Permitir registrar número da nota, valor total, data e prazo de garantia.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_funcionario` | Identificador do funcionário | Chave primária |
+| `função` | Função exercida pelo funcionário | Informação funcional |
+| `nome` | Nome do funcionário | Informação cadastral |
+| `telefone` | Telefone do funcionário | Informação cadastral |
+| `data_emissão` | Data de emissão registrada | Informação cadastral |
 
-Permitir registrar pagamentos.
+### RECEITA
 
-Permitir relacionar pagamentos às vendas.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_receita` | Identificador da receita | Chave primária |
+| `altura` | Informação de altura registrada na receita | Informação da receita |
+| `dp` | Informação de DP registrada na receita | Informação da receita |
+| `grau` | Grau registrado na receita | Informação da receita |
+| `data` | Data da receita | Informação da receita |
 
-Permitir registrar forma de pagamento, número de parcelas e valor.
+### VENDA
 
-Permitir cadastrar produtos.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_venda` | Identificador da venda | Chave primária |
+| `numero_nota` | Número da nota fiscal da venda | Identificação da venda |
+| `valor_total` | Valor total da venda | Informação financeira |
+| `data` | Data da venda | Informação da venda |
+| `prazo_garantia` | Prazo de garantia da venda | Informação de garantia |
 
-Permitir consultar produtos.
+### PAGAMENTO
 
-Permitir registrar as características dos produtos.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_pagamento` | Identificador do pagamento | Chave primária |
+| `forma` | Forma utilizada para realizar o pagamento | Informação do pagamento |
+| `num_parcelas` | Número de parcelas do pagamento | Informação do pagamento |
+| `valor` | Valor do pagamento | Informação financeira |
 
-Permitir controlar a quantidade disponível dos produtos.
+### PRODUTO
 
-Permitir cadastrar fornecedores.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_produto` | Identificador do produto | Chave primária |
+| `tipo` | Tipo do produto | Classificação do produto |
+| `referencia` | Referência do produto | Identificação do produto |
+| `marca` | Marca do produto | Informação do produto |
+| `modelo` | Modelo do produto | Informação do produto |
+| `tipo_montagem` | Tipo de montagem | Característica do produto |
+| `tratamento` | Tratamento do produto | Característica do produto |
+| `medida` | Medida do produto | Característica do produto |
+| `grau` | Grau do produto | Característica do produto |
+| `bloco` | Bloco do produto | Característica do produto |
+| `indice` | Índice do produto | Característica do produto |
+| `quantidade_disponivel` | Quantidade disponível do produto | Controle de estoque |
 
-Permitir consultar fornecedores.
+### FORNECEDOR
 
-Permitir registrar localização, telefone, CNPJ, nome e ID de fornecimento.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `localização` | Localização do fornecedor | Informação cadastral |
+| `telefone` | Telefone do fornecedor | Informação cadastral |
+| `cnpj` | CNPJ do fornecedor | Identificação do fornecedor |
+| `nome` | Nome do fornecedor | Informação cadastral |
+| `id_fornecimento` | Identificador do fornecimento | Identificação do registro |
 
-Permitir registrar compras.
+### COMPRA
 
-Permitir relacionar compras aos fornecedores.
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_compra` | Identificador da compra | Chave primária |
+| `data_compra` | Data em que a compra foi realizada | Informação da compra |
+| `valor_total` | Valor total da compra | Informação financeira |
+| `status_compra` | Situação atual da compra | Controle do status |
+| `tipo_compra` | Tipo da compra | Classificação da compra |
 
-Permitir registrar data, valor total, status e tipo da compra.
 
-Permitir relacionar produtos aos fornecedores.
+---
 
-3.2 Requisitos Não Funcionais
+## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
+*(vale 7,5% na dimensão conceitual)*
 
-Segurança: o sistema deve proteger as informações armazenadas e restringir o acesso conforme as permissões definidas.
+- **Entidades reconhecidas:** As principais entidades identificadas no DER são CLIENTE, ATENDIMENTO, FUNCIONARIO, RECEITA, VENDA, PAGAMENTO, PRODUTO, FORNECEDOR e COMPRA. Cada uma representa uma parte específica dos processos realizados pela organização.
 
-Integridade: os dados cadastrados devem permanecer consistentes entre as entidades e relacionamentos.
+- **CLIENTE:** Representa as pessoas que utilizam os serviços e realizam compras na organização.
 
-Usabilidade: o sistema deve apresentar as informações de maneira organizada e compreensível.
+- **ATENDIMENTO:** Representa os atendimentos realizados aos clientes.
 
-Desempenho: o sistema deve realizar consultas e registros de maneira eficiente.
+- **FUNCIONARIO:** Representa os funcionários responsáveis pelos atendimentos e atividades da organização.
 
-Escalabilidade: o sistema deve permitir o crescimento da quantidade de clientes, produtos, vendas, compras e demais registros.
+- **RECEITA:** Representa as receitas geradas a partir dos atendimentos realizados.
 
-Disponibilidade: os dados devem estar disponíveis quando forem necessários para a realização dos processos da organização.
+- **VENDA:** Representa as vendas realizadas para os clientes.
 
-4. Regras de Negócio
+- **PAGAMENTO:** Representa os pagamentos relacionados às vendas.
 
-(esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação)
+- **PRODUTO:** Representa os produtos comercializados e controlados pela organização.
 
-Regras operacionais:
+- **FORNECEDOR:** Representa as empresas ou responsáveis pelo fornecimento dos produtos.
 
-Todo atendimento deve estar relacionado a um cliente.
+- **COMPRA:** Representa as compras realizadas pela organização junto aos fornecedores.
 
-Todo atendimento deve estar relacionado a um funcionário.
+- **Atributos e classificações:** Cada entidade possui atributos específicos responsáveis por armazenar suas informações. Os atributos identificadores, como `id_cliente`, `id_atendimento`, `id_funcionario`, `id_receita`, `id_venda`, `id_pagamento`, `id_produto` e `id_compra`, permitem identificar individualmente os registros.
 
-Um atendimento pode gerar uma receita.
+- **Relacionamentos pertinentes:** As entidades estão relacionadas de acordo com os processos da organização. O cliente realiza atendimentos e vendas, os atendimentos estão relacionados aos funcionários e podem gerar receitas e vendas, as vendas recebem pagamentos e possuem produtos, enquanto fornecedores estão relacionados aos produtos e às compras.
 
-Um atendimento pode gerar uma venda.
+- **Restrições e políticas organizacionais aplicadas ao modelo:** As cardinalidades e relacionamentos representados no DER devem ser respeitados na implementação do banco de dados para garantir a integridade das informações.
 
-Uma venda deve estar relacionada a um cliente.
 
-Uma venda deve receber pagamento.
+---
 
-Uma venda pode possuir produtos.
+## 7. Diagrama Entidade-Relacionamento (DER)
+*(vale 20% — é o item de maior peso da entrega)*
 
-Todo produto deve possuir um identificador próprio.
+- **Anexe o DER (em imagem):** O Diagrama Entidade-Relacionamento representa graficamente a estrutura conceitual do banco de dados da organização.
 
-O produto deve possuir controle de quantidade disponível.
+- **Entidades:** O DER é composto pelas entidades CLIENTE, ATENDIMENTO, FUNCIONARIO, RECEITA, VENDA, PAGAMENTO, PRODUTO, FORNECEDOR e COMPRA.
 
-Um fornecedor pode fornecer diferentes produtos.
+- **Atributos:** Cada entidade apresenta seus respectivos atributos, utilizados para representar as informações necessárias aos processos da organização.
 
-Um produto pode estar relacionado a diferentes fornecedores.
+- **Relacionamentos:** O DER apresenta os relacionamentos entre clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras.
 
-Um fornecedor pode atender diferentes compras.
+- **Cardinalidades:** As cardinalidades representam a quantidade mínima e máxima de ocorrências permitidas entre as entidades relacionadas.
 
-Uma compra deve estar relacionada a um fornecedor.
+- **Consistência do modelo:** O modelo foi estruturado buscando manter a relação entre as entidades de acordo com os processos identificados na organização.
 
-Toda compra deve possuir data, valor total, status e tipo.
+- **Escalabilidade:** A estrutura permite que novos registros de clientes, atendimentos, vendas, produtos, fornecedores e compras sejam adicionados sem alterar a estrutura conceitual principal do sistema.
 
-Os registros devem possuir identificadores para permitir sua diferenciação.
 
-Restrições organizacionais:
+---
 
-Os identificadores devem ser utilizados para evitar registros duplicados dentro das entidades.
+## 8. Justificativa Técnica
+*(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)*
 
-As cardinalidades definidas no DER devem ser respeitadas na implementação do banco de dados.
+- **Escolha das entidades:** As entidades foram definidas a partir dos principais elementos envolvidos nos processos da organização. A separação entre clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras permite representar cada conjunto de informações de maneira organizada.
 
-Os dados dos clientes, funcionários e fornecedores devem ser armazenados de maneira organizada.
+- **Escolha dos atributos:** Os atributos foram definidos de acordo com as informações necessárias para identificar e descrever cada entidade. Os identificadores foram utilizados para diferenciar os registros e facilitar os relacionamentos entre as entidades.
 
-A quantidade disponível dos produtos deve permitir o controle do estoque.
+- **Escolha dos relacionamentos:** Os relacionamentos representam as operações realizadas pela organização. Dessa forma, é possível acompanhar desde o atendimento do cliente até processos relacionados a receitas, vendas, pagamentos, produtos, fornecedores e compras.
 
-Os dados de venda devem estar relacionados aos respectivos pagamentos e produtos.
+- **Escolha das cardinalidades:** As cardinalidades foram utilizadas para representar a quantidade de registros que podem participar de cada relacionamento, mantendo a estrutura compatível com os processos representados no DER.
 
-Os dados de compra devem estar relacionados aos respectivos fornecedores.
+- **Organização do modelo:** A divisão das informações em diferentes entidades evita a concentração de dados em uma única estrutura e facilita a futura implementação do banco de dados.
 
-5. Dicionário de Dados Conceitual (Preliminar)
+- **Escalabilidade:** A estrutura conceitual permite que o sistema seja ampliado posteriormente com novos clientes, funcionários, produtos, vendas, compras e demais registros.
 
-(vale 10% — Dimensão Procedimental - Segue o modelo do arquivo 02-03g_Exemplo_Dicionario_Dados.pdf)
 
-Para cada entidade identificada:
+---
 
-CLIENTE
+## 9. Uso de Inteligência Artificial
+*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
 
-Atributo
+- **Ferramenta e etapa:** Foi utilizada a ferramenta **ChatGPT** na etapa de organização e documentação do projeto a partir das informações presentes no DER.
 
-Descrição
+- **Motivação:** A ferramenta foi utilizada para auxiliar na organização das informações do DER dentro do esqueleto fornecido pelo professor, mantendo a ordem e o formato solicitado.
 
-Regra de negócio associada
+- **Prompt(s) utilizados:** O grupo solicitou que as informações do DER fossem colocadas no esqueleto fornecido, mantendo o formato, a ordem e a estrutura apresentados no roteiro.
 
-cpf
+- **Resposta recebida:** A IA organizou as informações identificadas no DER nas seções do projeto, incluindo caracterização da organização, processos de negócio, requisitos, regras de negócio, dicionário de dados, modelagem conceitual, DER e justificativa técnica.
 
-CPF utilizado para identificação do cliente
+- **Fontes consultadas e verificadas:** O DER fornecido pelo grupo foi utilizado como principal referência para identificar as entidades, atributos e relacionamentos.
 
-Deve identificar o cliente
+- **Trechos rejeitados ou corrigidos:** Informações que não estavam presentes no DER, como nome oficial da organização, endereço, telefone, responsável e demais evidências da pesquisa de campo, devem ser verificadas e preenchidas pelo grupo.
 
-id_cliente
+- **Justificativa da escolha final:** O conteúdo foi mantido e organizado com base nas informações disponíveis no DER e na estrutura apresentada pelo professor.
 
-Identificador único do cliente
+- **Reflexão crítica:** A IA foi utilizada como ferramenta de apoio à organização e documentação. As informações específicas da organização devem ser verificadas pelo grupo por meio da pesquisa de campo, evitando a utilização de informações inventadas ou não confirmadas.
 
-Chave primária
 
-endereço
+---
 
-Endereço do cliente
+## Critérios Atitudinais (20%)
 
-Informação cadastral
+- **Participação (5%):** Envolvimento nas discussões técnicas e nas decisões realizadas pelo grupo durante o desenvolvimento do projeto.
 
-nome
+- **Comprometimento (5%):** Cumprimento dos prazos e das responsabilidades assumidas pelos integrantes do grupo.
 
-Nome do cliente
+- **Colaboração (5%):** Cooperação entre os integrantes, respeito às contribuições dos colegas e participação equilibrada no desenvolvimento do projeto e no histórico de commits do GitHub.
 
-Informação cadastral
+- **Autonomia (5%):** Busca independente por soluções, participação nas decisões e proposta de melhorias para o projeto.
 
-data_nasc
 
-Data de nascimento do cliente
+---
 
-Informação cadastral
+## Resumo dos Pesos
 
-ATENDIMENTO
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_atendimento
-
-Identificador do atendimento
-
-Chave primária
-
-tipo
-
-Tipo de atendimento realizado
-
-Exame, venda ou ajuste
-
-data
-
-Data em que ocorreu o atendimento
-
-Informação obrigatória do atendimento
-
-hora
-
-Horário do atendimento
-
-Informação do atendimento
-
-observação
-
-Observações relacionadas ao atendimento
-
-Informação complementar
-
-FUNCIONARIO
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_funcionario
-
-Identificador do funcionário
-
-Chave primária
-
-função
-
-Função exercida pelo funcionário
-
-Informação funcional
-
-nome
-
-Nome do funcionário
-
-Informação cadastral
-
-telefone
-
-Telefone do funcionário
-
-Informação cadastral
-
-data_emissão
-
-Data de emissão registrada
-
-Informação cadastral
-
-RECEITA
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_receita
-
-Identificador da receita
-
-Chave primária
-
-altura
-
-Informação de altura registrada na receita
-
-Informação da receita
-
-dp
-
-Informação de DP registrada na receita
-
-Informação da receita
-
-grau
-
-Grau registrado na receita
-
-Informação da receita
-
-data
-
-Data da receita
-
-Informação da receita
-
-VENDA
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_venda
-
-Identificador da venda
-
-Chave primária
-
-numero_nota
-
-Número da nota fiscal da venda
-
-Identificação da venda
-
-valor_total
-
-Valor total da venda
-
-Informação financeira
-
-data
-
-Data da venda
-
-Informação da venda
-
-prazo_garantia
-
-Prazo de garantia da venda
-
-Informação de garantia
-
-PAGAMENTO
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_pagamento
-
-Identificador do pagamento
-
-Chave primária
-
-forma
-
-Forma utilizada para realizar o pagamento
-
-Dinheiro, PIX, débito ou crédito
-
-num_parcelas
-
-Número de parcelas do pagamento
-
-Informação do pagamento
-
-valor
-
-Valor do pagamento
-
-Informação financeira
-
-PRODUTO
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_produto
-
-Identificador do produto
-
-Chave primária
-
-tipo
-
-Tipo do produto
-
-Classificação do produto
-
-referencia
-
-Referência do produto
-
-Identificação do produto
-
-marca
-
-Marca do produto
-
-Informação do produto
-
-modelo
-
-Modelo do produto
-
-Informação do produto
-
-tipo_montagem
-
-Tipo de montagem
-
-Característica do produto
-
-tratamento
-
-Tratamento do produto
-
-Característica do produto
-
-medida
-
-Medida do produto
-
-Característica do produto
-
-grau
-
-Grau do produto
-
-Característica do produto
-
-bloco
-
-Bloco do produto
-
-Característica do produto
-
-indice
-
-Índice do produto
-
-Característica do produto
-
-quantidade_disponivel
-
-Quantidade disponível do produto
-
-Controle de estoque
-
-FORNECEDOR
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-localização
-
-Localização do fornecedor
-
-Informação cadastral
-
-telefone
-
-Telefone do fornecedor
-
-Informação cadastral
-
-cnpj
-
-CNPJ do fornecedor
-
-Identificação do fornecedor
-
-nome
-
-Nome do fornecedor
-
-Informação cadastral
-
-id_fornecimento
-
-Identificador do fornecimento
-
-Identificação do registro
-
-COMPRA
-
-Atributo
-
-Descrição
-
-Regra de negócio associada
-
-id_compra
-
-Identificador da compra
-
-Chave primária
-
-data_compra
-
-Data em que a compra foi realizada
-
-Informação da compra
-
-valor_total
-
-Valor total da compra
-
-Informação financeira
-
-status_compra
-
-Situação atual da compra
-
-Controle do status
-
-tipo_compra
-
-Tipo da compra
-
-Classificação da compra
-
-6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-
-(vale 7,5% na dimensão conceitual)
-
-Entidades reconhecidas:
-
-CLIENTE: representa os clientes atendidos pela organização.
-
-ATENDIMENTO: representa os atendimentos realizados.
-
-FUNCIONARIO: representa os funcionários responsáveis pelos atendimentos.
-
-RECEITA: representa as receitas geradas nos atendimentos.
-
-VENDA: representa as vendas realizadas.
-
-PAGAMENTO: representa os pagamentos das vendas.
-
-PRODUTO: representa os produtos comercializados.
-
-FORNECEDOR: representa os fornecedores dos produtos.
-
-COMPRA: representa as compras realizadas junto aos fornecedores.
-
-Atributos e classificações:
-
-Cada entidade possui seus próprios atributos para representar as informações necessárias ao funcionamento da organização. Os atributos identificadores, como id_cliente, id_atendimento, id_funcionario, id_receita, id_venda, id_pagamento, id_produto e id_compra, são utilizados para identificar os registros.
-
-Relacionamentos pertinentes:
-
-CLIENTE REALIZA ATENDIMENTO.
-
-ATENDIMENTO REALIZA com FUNCIONARIO.
-
-ATENDIMENTO GERA RECEITA.
-
-ATENDIMENTO GERA VENDA.
-
-CLIENTE REALIZA VENDA.
-
-VENDA RECEBE PAGAMENTO.
-
-VENDA POSSUI PRODUTO.
-
-PRODUTO FORNECE FORNECEDOR.
-
-FORNECEDOR ATENDE COMPRA.
-
-Restrições e políticas organizacionais aplicadas ao modelo:
-
-As cardinalidades apresentadas no DER devem ser respeitadas na implementação do banco de dados. Os relacionamentos representam as operações existentes entre clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras.
-
-7. Diagrama Entidade-Relacionamento (DER)
-
-(vale 20% — é o item de maior peso da entrega)
-
-Anexe o DER (em imagem).
-
-O DER apresenta as seguintes entidades:
-
-CLIENTE
-
-ATENDIMENTO
-
-FUNCIONARIO
-
-RECEITA
-
-VENDA
-
-PAGAMENTO
-
-PRODUTO
-
-FORNECEDOR
-
-COMPRA
-
-Os relacionamentos representados são:
-
-CLIENTE — REALIZA — ATENDIMENTO
-
-ATENDIMENTO — REALIZA — FUNCIONARIO
-
-ATENDIMENTO — GERA — RECEITA
-
-ATENDIMENTO — GERA — VENDA
-
-CLIENTE — REALIZA — VENDA
-
-VENDA — RECEBE — PAGAMENTO
-
-VENDA — POSSUI — PRODUTO
-
-PRODUTO — FORNECE — FORNECEDOR
-
-FORNECEDOR — ATENDE — COMPRA
-
-O modelo utiliza cardinalidades para representar a participação mínima e máxima das entidades em cada relacionamento.
-
-O DER foi estruturado de forma a permitir uma futura implementação do banco de dados e possibilitar a expansão do sistema conforme o crescimento da organização.
-
-8. Justificativa Técnica
-
-(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)
-
-A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos da organização de maneira organizada e estruturada.
-
-As entidades CLIENTE, ATENDIMENTO, FUNCIONARIO, RECEITA, VENDA, PAGAMENTO, PRODUTO, FORNECEDOR e COMPRA foram separadas porque representam diferentes elementos envolvidos no funcionamento da organização.
-
-A entidade CLIENTE permite armazenar as informações cadastrais dos clientes. A entidade ATENDIMENTO registra as informações relacionadas aos atendimentos realizados, enquanto FUNCIONARIO permite identificar os funcionários envolvidos nesses atendimentos.
-
-A entidade RECEITA foi separada para armazenar as informações específicas das receitas geradas a partir dos atendimentos.
-
-A entidade VENDA representa a operação comercial e possui informações próprias, como número da nota, valor total, data e prazo de garantia.
-
-A entidade PAGAMENTO foi separada da venda para permitir o armazenamento das informações financeiras relacionadas ao pagamento, como forma, número de parcelas e valor.
-
-A entidade PRODUTO permite armazenar as características dos produtos comercializados e controlar a quantidade disponível.
-
-A entidade FORNECEDOR representa os fornecedores e armazena suas informações cadastrais. A entidade COMPRA representa as operações de compra realizadas junto dos fornecedores.
-
-Os relacionamentos foram definidos para representar como as entidades participam dos processos da organização. As cardinalidades demonstram a quantidade mínima e máxima de ocorrências permitidas em cada relacionamento.
-
-A estrutura criada permite que o modelo seja posteriormente utilizado como base para a criação do modelo lógico e implementação do banco de dados.
-
-9. Uso de Inteligência Artificial
-
-(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)
-
-Item
-
-O que registrar
-
-Ferramenta e etapa
-
-ChatGPT — utilizado na etapa de organização e documentação do projeto a partir do DER.
-
-Motivação
-
-A ferramenta foi utilizada para organizar as informações presentes no DER dentro do esqueleto fornecido pelo professor, mantendo a ordem e o formato solicitado.
-
-Prompt(s) utilizados
-
-“PEGA AS INFORMAÇÕES DO DER E COLOCA NO ESQUELETO NÃO MUDA O FORMATO SEGUE A ORDEM E O JEITO QUE TE MANDEI.”
-
-Resposta recebida
-
-A IA organizou as informações do DER nas seções do projeto, incluindo caracterização da organização, processos de negócio, requisitos, regras de negócio, dicionário de dados, modelagem conceitual, DER e justificativa técnica.
-
-Fontes consultadas e verificadas
-
-O DER fornecido pelo grupo foi utilizado como principal fonte para identificar as entidades, atributos e relacionamentos.
-
-Trechos rejeitados ou corrigidos
-
-Informações que não estavam presentes no DER, como nome oficial da organização, endereço, telefone, responsável e outras evidências da pesquisa de campo, não foram inventadas e devem ser preenchidas pelo grupo.
-
-Justificativa da escolha final
-
-O conteúdo foi organizado com base nas informações identificadas no DER e seguindo a estrutura apresentada no roteiro do trabalho.
-
-Reflexão crítica
-
-A IA foi utilizada como ferramenta de apoio à organização e documentação. As informações específicas da organização precisam ser verificadas e validadas pelo grupo por meio da pesquisa de campo.
-
-Critérios Atitudinais (20%)
-
-Estes critérios são avaliados por meio da participação dos integrantes do grupo durante o desenvolvimento do projeto:
-
-Participação (5%): envolvimento nas discussões técnicas e decisões do grupo.
-
-Comprometimento (5%): cumprimento dos prazos e responsabilidades assumidas.
-
-Colaboração (5%): cooperação entre os integrantes e participação equilibrada no desenvolvimento do projeto e nos commits do GitHub.
-
-Autonomia (5%): busca independente de soluções e proposta de melhorias para o projeto.
-
-Resumo dos Pesos
-
-Dimensão
-
-Peso total
-
-Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica)
-
-30%
-
-Procedimental (requisitos, fluxogramas, dicionário de dados, DER)
-
-50%
-
-Atitudinal (participação, comprometimento, colaboração, autonomia)
-
-20%
+| Dimensão | Peso total |
+|----------|-----------|
+| Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica) | 30% |
+| Procedimental (requisitos, fluxogramas, dicionário de dados, DER) | 50% |
+| Atitudinal (participação, comprometimento, colaboração, autonomia) | 20% |
