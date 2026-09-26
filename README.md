@@ -1,8 +1,14 @@
-Nomes dos integrantes 
-Victor Augusto Silva Marcilio RGM 47190175
-João Felipe De Sousa Pires RGM 48165379
-Cauã Batista Freire RGM 48355127
-João Victor Gobi Romero RGM 48114642
+# Trabalho do Professor Cid
+
+## Integrantes do Grupo
+
+| Nome | RGM |
+|---|---:|
+| **Victor Augusto Silva Marcilio** | 47190175 |
+| **João Felipe De Sousa Pires** | 48165379 |
+| **Cauã Batista Freire** | 48355127 |
+| **João Victor Gobi Romero** | 48114642 |
+| **Guilherme Araujo De Oliveira** | 47116862 |
 
 ## 1. Caracterização da Organização
 *(vale 7,5% — Dimensão Conceitual)*
