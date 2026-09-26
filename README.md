@@ -1,3 +1,9 @@
+Nomes dos integrantes 
+Victor Augusto Silva Marcilio RGM 47190175
+João Felipe De Sousa Pires RGM 48165379
+Cauã Batista Freire RGM 48355127
+João Victor Gobi Romero RGM 48114642
+
 ## 1. Caracterização da Organização
 *(vale 7,5% — Dimensão Conceitual)*
 
