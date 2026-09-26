@@ -113,7 +113,7 @@
 
 O Dicionário de Dados apresenta as entidades, atributos, descrições e regras de negócio utilizadas na modelagem da Ótica Kadosh.
 
-[📄 Acessar Dicionário de Dados em HTML](Dicionario_de_Dados_Otica_Kadosh.html)
+[📄 Acessar Dicionário de Dados em HTML](https://victordev14.github.io/Trabalho-do-Professor-Cid/Dicionario_de_Dados_Otica_Kadosh.html)
 
 ---
 
