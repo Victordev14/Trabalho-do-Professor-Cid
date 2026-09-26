@@ -247,22 +247,8 @@ Para cada entidade identificada, foram definidos os atributos necessários para 
 ## 7. Diagrama Entidade-Relacionamento (DER)
 *(vale 20% — é o item de maior peso da entrega)*
 
-- **Anexe o DER (em imagem):** O Diagrama Entidade-Relacionamento representa graficamente a estrutura conceitual do banco de dados da organização.
+<img width="1243" height="948" alt="image" src="https://github.com/user-attachments/assets/453b1735-33d7-462a-ba8c-4c2915e364dc" />
 
-- **Entidades:** O DER é composto pelas entidades CLIENTE, ATENDIMENTO, FUNCIONARIO, RECEITA, VENDA, PAGAMENTO, PRODUTO, FORNECEDOR e COMPRA.
-
-- **Atributos:** Cada entidade apresenta seus respectivos atributos, utilizados para representar as informações necessárias aos processos da organização.
-
-- **Relacionamentos:** O DER apresenta os relacionamentos entre clientes, atendimentos, funcionários, receitas, vendas, pagamentos, produtos, fornecedores e compras.
-
-- **Cardinalidades:** As cardinalidades representam a quantidade mínima e máxima de ocorrências permitidas entre as entidades relacionadas.
-
-- **Consistência do modelo:** O modelo foi estruturado buscando manter a relação entre as entidades de acordo com os processos identificados na organização.
-
-- **Escalabilidade:** A estrutura permite que novos registros de clientes, atendimentos, vendas, produtos, fornecedores e compras sejam adicionados sem alterar a estrutura conceitual principal do sistema.
-
-
----
 
 ## 8. Justificativa Técnica
 *(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)*
