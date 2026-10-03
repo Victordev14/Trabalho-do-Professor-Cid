@@ -1,4 +1,4 @@
-# Trabalho do Professor Cid
+Otica Kadoshi
 
 ## Integrantes do Grupo
 
